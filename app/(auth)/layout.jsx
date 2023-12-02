@@ -23,7 +23,7 @@ export default async function AuthLayout({ children }) {
           width={70} 
           quality={100}
         /> 
-        <h1>Ryo's Helpdesk</h1>
+        <h1>RyoTech Helpdesk</h1>
         <Link href="/signup">Sign up</Link>
         <Link href="/login">Log in</Link>
       </nav>

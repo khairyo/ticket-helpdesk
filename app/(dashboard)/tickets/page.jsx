@@ -4,7 +4,7 @@ import Loading from "../Loading";
 import Link from "next/link";
 
 export const metadata = { 
-  title: "Ryo's Helpdesk | Tickets"
+  title: "RyoTech Helpdesk | Tickets"
 }
 
 export default function Tickets() {
