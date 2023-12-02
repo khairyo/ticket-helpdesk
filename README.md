@@ -14,6 +14,6 @@ Ticket Management:
 Follow these steps to set up and run the Ticket Helpdesk App locally:
 1. Clone the repository:
 ```
-git clone https://github.com/your-username/ticket-helpdesk-app.git
+git clone https://github.com/khairyo/ticket-helpdesk.git
 cd ticket-helpdesk-app
 ```
