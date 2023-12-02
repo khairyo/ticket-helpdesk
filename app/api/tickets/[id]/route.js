@@ -1,20 +1,15 @@
 // dynamic route file - need to make it dynamic bc we need to fetch data from the server based on the id of the ticket
-
+import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs'
 import { NextResponse } from 'next/server'
+import { cookies } from 'next/headers'
 
-export const dynamic = 'force-dynamic'
+export async function DELETE(_, { params }) {
+  const id = params.id
+  const supabase = createRouteHandlerClient({ cookies })
+  
+  const { error } = await supabase.from('tickets')
+  .delete()
+  .eq('id', id)
 
-export async function GET(request, { params }) {
-  const res = await fetch(`http://localhost:4000/tickets/${params.id}`)
-  const ticket = await res.json()
-
-  if (!res.ok) {
-    return NextResponse.json({ error: 'Cannot find the ticket'}, {
-      status: 404
-    })
-  }
-
-  return NextResponse.json(ticket, {
-    status: 200
-  })
+  return NextResponse.json({ error })
 }

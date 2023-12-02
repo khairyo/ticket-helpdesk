@@ -1,25 +1,22 @@
+import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
+import { cookies } from 'next/headers'
 import Link from 'next/link'
 
 async function getTickets() {
-  // imitate delayed response - 3 seconds
-  // await new Promise((resolve) => setTimeout(resolve, 3000))
+  const supabase = createServerComponentClient({ cookies })
 
-  const res = await fetch('http://localhost:4000/tickets', {
-    next: {
-      revalidate: 0 // 30: if i revisit the page within 30 seconds and refresh, it will use the cached result from first call; but if i revisit the page after 30 seconds and refresh, it will make another request to the server
-      // 0: data will never be cached
-      // since this portion fetches data and is constantly being re-rendered, cannot use static rendering. However, if the revalidation time is long enough, Next will be confident that for that time period, the content here wouldn't change so can use static component here. When the time elapses, will fetch the content and rebuild the page using static rendering.
-    }
-  }) // this is a promise, so we need to await it
-  // if you call this same line again somewhere else in the app, it will not call twice, it will use the cached result from first call
-  // caches data indefinitely
-  
-  return res.json(); // if you're directly returning, not assigning to variable, no need "await"
+  const { data, error } = await supabase.from('tickets')
+  .select()
+
+  if (error) {
+    console.log(error.message)
+  }
+
+  return data
 }
 
 export default async function TicketList() {
-  const tickets = await getTickets() // this is a promise, so we need to await it
-  
+  const tickets = await getTickets()
   return (
     <div>
       {tickets.map((ticket) => (

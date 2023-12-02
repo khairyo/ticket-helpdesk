@@ -1,61 +1,59 @@
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs"
+import { cookies } from "next/headers"
 import { notFound } from "next/navigation"
+import DeleteButton from "./DeleteButton"
 
 export const dynamicParams = true
 // false -> if id doesn't exist, redirect to 404 page
 // true -> if id doesn't exist, will generate a new page with that id, now can generate static page for future requests to that ticket
 
 export async function generateMetadata({ params }) {
-  
-  // params: Next.js generated object. Contains all the params in the URL. To extract the id, you can do params.id
-  const id = params.id
+  const supabase = createServerComponentClient({ cookies })
 
-  const res = await fetch(`http://localhost:4000/tickets/${id}`)
-  const ticket = await res.json() // read response body as json
+  // once data is returned, call it "ticket" -> cuz we're calling ticket.title instead of data.title
+  const { data: ticket } = await supabase.from('tickets')
+  .select()
+  .eq('id', params.id)
+  .single()
 
   return {
-    title: `Dojo Helpdesk | ${ticket.title}`
+    title: `Dojo Helpdesk | ${ticket?.title || "Ticket not found"}`
   }
 }
 
-// assuming you want the component which needs to render data on the fly statically, you can use this. Will pre-fetch all the required id's, so when it builds the application, it knows all of the pages and routes it needs to make.
-// this is used when your revalidate value is not 0. if it's 0, you're basically rendering everything dynamically anw, so no need to statically render anything.
-// having this function makes app pages load faster
-export async function generateStaticParams() {
-  const res = await fetch('http://localhost:4000/tickets')
-  const tickets = await res.json()
-
-  return tickets.map((ticket) => (
-    { id: ticket.id }
-  ))
-}
-
 async function getTicket(id) {
-  
-  const res = await fetch('http://localhost:4000/tickets/' + id, {
-    next: {
-      revalidate: 0 
-    }
-  })
+  const supabase = createServerComponentClient({ cookies })
 
-  if (!res.ok) {
+  const { data } = await supabase.from('tickets')
+  .select()
+  .eq('id', id)
+  .single()
+
+  if (!data) {
     notFound() // this is a function from Next -> will redirect to 404 page
     // can be overridden by writing a not-found.jsx file
   }
   
-  return res.json();
+  return data;
 }
 
 
 export default async function TicketDetails({ params }) {
-  
   const ticket = await getTicket(params.id) // id can be a number, string, etc.
-  // now when you type localhost:3000/tickets/1, it will show the ticket with id 1
+
+  const supabase = createServerComponentClient({ cookies })
+  const { data } = await supabase.auth.getSession()
 
   return (
     <div>
 
       <nav>
         <h2>Ticket Details</h2>
+        <div className="ml-auto">
+          {data.session.user.email === ticket.user_email && (
+            <DeleteButton id={ticket.id} />
+          )}
+        </div>
       </nav>
 
       <div className="card">

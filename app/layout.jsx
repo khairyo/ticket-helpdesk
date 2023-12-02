@@ -1,11 +1,7 @@
-// wtv is in this parent layout file will also wrap around child layouts.
-
 import './globals.css'
 import { Rubik } from 'next/font/google'
 
-// components
-import Navbar from './components/Navbar'
-
+export const dynamic = 'force-dynamic' // Next.js will not try to statically build anything
 const rubik = Rubik({ subsets: ['latin'] })
 
 export const metadata = { // accessible on every page, but can be overridden
