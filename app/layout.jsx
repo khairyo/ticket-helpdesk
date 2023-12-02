@@ -5,8 +5,8 @@ export const dynamic = 'force-dynamic' // Next.js will not try to statically bui
 const rubik = Rubik({ subsets: ['latin'] })
 
 export const metadata = { // accessible on every page, but can be overridden
-  title: 'Dojo Helpdesk',
-  description: 'A Dojo Helpdesk',
+  title: "Ryo's Helpdesk",
+  description: 'A Ticket Helpdesk',
 }
 
 // "children" refers to the current page component being viewed in the browser

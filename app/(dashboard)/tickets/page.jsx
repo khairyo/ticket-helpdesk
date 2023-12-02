@@ -4,7 +4,7 @@ import Loading from "../Loading";
 import Link from "next/link";
 
 export const metadata = { 
-  title: 'Dojo Helpdesk | Tickets'
+  title: "Ryo's Helpdesk | Tickets"
 }
 
 export default function Tickets() {
@@ -13,7 +13,11 @@ export default function Tickets() {
       <nav>
         <div>
           <h2>Tickets</h2>
-          <p><small>Currently open tickets.</small></p>
+          <p>
+            <small>
+            Currently open tickets. Click on a ticket to view details.
+            </small>
+          </p>
         </div>
         <Link href='/tickets/create' className="ml-auto">
           <button className="btn-primary">New Ticket</button>

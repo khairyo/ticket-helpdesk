@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <main>
       <h2>Dashboard</h2>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero repellendus tempore, exercitationem odit, quasi doloremque possimus recusandae alias sequi totam soluta natus iure eius, obcaecati sint dolores blanditiis aspernatur quo officia iusto ut. Et, aliquid sed voluptates iste cum totam, facere explicabo, fugit suscipit ratione aspernatur consequuntur ex mollitia quaerat?</p>
+      <p>Welcome to Ryo's Helpdesk, your central hub for viewing support tickets directed to <strong>RyoTech.Co</strong>. Whether you're a user seeking assistance or a support agent handling requests, this dashboard provides a comprehensive overview of all open tickets. View tickets here at your leisure, or submit a ticket if you are in need of assistance from our support team or technicians.</p>
 
       <div className="flex justify-center my-8">
         <Link href="/tickets">
@@ -15,12 +15,19 @@ export default function Home() {
       <h2>Company Updates</h2>
 
       <div className="card">
-        <h3>New member of the web dev team...</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, at quam. Dolores omnis possimus quam soluta rerum illo laborum ullam pariatur molestiae, modi beatae corrupti.</p>
+        <h3>New member of our web development team!</h3>
+        <p>Please join us in welcoming Khai Ryo, the newest addition to our web development team! We are thrilled to have her on board, and we're already looking forward to the fantastic projects she is bringing to life. With a wealth of skills and a passion for innovation, Khai Ryo is set to embark on numerous exciting endeavors that will undoubtedly enhance our web development landscape. Stay tuned for the amazing work she has in store for us!</p>
       </div>
       <div className="card">
-        <h3>New website live!</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, at quam. Dolores omnis possimus quam soluta rerum illo laborum ullam pariatur molestiae, modi beatae corrupti, assumenda distinctio adipisci, cupiditate minima eum vitae? Similique dicta est facilis debitis, autem temporibus quo repellat illum unde id iste veritatis eveniet, aspernatur enim quas.</p>
+        <h3>🌐 Tech Marvels Unveiled at the Digital Innovation Expo! 🚀</h3>
+        <p>Get ready to immerse yourself in the ultimate tech extravaganza! The Digital Innovation Expo is just around the corner, and the excitement is palpable. This year, we're thrilled to announce that groundbreaking products and technologies will take center stage! 
+        <br /><br />
+        Picture this: cutting-edge gadgets, revolutionary software, and mind-blowing innovations that will reshape the future. From the latest in AI to sleek IoT devices, our tech wizards have been working tirelessly to bring you the next generation of digital marvels.
+        <br /><br />
+        As you step into the convention, be prepared to witness the unveiling of products that will redefine the way we live, work, and connect. It's not just a showcase; it's an experience that will leave you inspired and awestruck.
+        <br /><br />
+        Stay tuned as we count down to the moment when the tech world converges at the Digital Innovation Expo. Your journey into the future of technology is about to begin! 🌐✨
+        </p>
       </div>
     </main>
   )
