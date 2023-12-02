@@ -14,7 +14,7 @@ export default function Navbar({ user }) {
 				// placeholder="blur" // blur effect while loading, based on current colors in the image
 			/> 
 
-			<h1>Ryo's Helpdesk</h1>
+			<h1>RyoTech Helpdesk</h1>
 			<Link href="/">Dashboard</Link> 
 			<Link href="/tickets" className='mr-auto'>Tickets</Link> 
 			{/* Link components are pre-fetched in the background, so by the time you click on the link you will be redirected to the next page v fast */}

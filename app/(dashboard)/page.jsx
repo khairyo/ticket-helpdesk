@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <main>
       <h2>Dashboard</h2>
-      <p>Welcome to Ryo's Helpdesk, your central hub for viewing support tickets directed to <strong>RyoTech.Co</strong>. Whether you're a user seeking assistance or a support agent handling requests, this dashboard provides a comprehensive overview of all open tickets. View tickets here at your leisure, or submit a ticket if you are in need of assistance from our support team or technicians.</p>
+      <p>Welcome to RyoTech Helpdesk, your central hub for viewing support tickets directed to <strong>RyoTech.Co</strong>. Whether you're a user seeking assistance or a support agent handling requests, this dashboard provides a comprehensive overview of all open tickets. View tickets here at your leisure, or submit a ticket if you are in need of assistance from our support team or technicians.</p>
 
       <div className="flex justify-center my-8">
         <Link href="/tickets">
