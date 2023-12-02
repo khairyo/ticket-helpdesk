@@ -23,5 +23,5 @@ cd ticket-helpdesk-app
 ```npm run dev```
 
 ## Technologies Used
-Next.js: React framework for building efficient and scalable web applications.
-Supabase: Open-source alternative to Firebase, providing a scalable and secure database solution.
+- Next.js: React framework for building efficient and scalable web applications.
+- Supabase: Open-source alternative to Firebase, providing a scalable and secure database solution.
