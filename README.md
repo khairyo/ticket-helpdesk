@@ -5,6 +5,7 @@ Welcome to the Ticket Helpdesk App! This application is built using Next.js and 
 User Authentication:
 - Sign Up: New users can register with the application, creating a personalized account.
 - Log In: Existing users can securely log in to access their account and manage tickets.
+
 Ticket Management:
 - Create: Users can submit new tickets, providing details about their inquiries or issues.
 - View: The application displays a list of submitted tickets for users to keep track of their requests.
