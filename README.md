@@ -17,3 +17,11 @@ Follow these steps to set up and run the Ticket Helpdesk App locally:
 git clone https://github.com/khairyo/ticket-helpdesk.git
 cd ticket-helpdesk-app
 ```
+2. Install dependencies:
+```npm install```
+3. Run the application:
+```npm run dev```
+
+## Technologies Used
+Next.js: React framework for building efficient and scalable web applications.
+Supabase: Open-source alternative to Firebase, providing a scalable and secure database solution.
